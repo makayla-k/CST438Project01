@@ -33,7 +33,7 @@
         android:inputType="textPassword"
         android:layout_margin="20dp"
         android:hint="Enter Password"
-        android:id="@+id/Password"/>
+        android:id="@+id/password"/>
 
     <Button
         android:id="@+id/regBtn"
