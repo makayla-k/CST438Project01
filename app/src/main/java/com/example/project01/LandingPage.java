@@ -14,6 +14,7 @@ public class LandingPage extends AppCompatActivity {
     Button usrProfileBtn;
 
 //    get app id from secrets file
+//    makayla was here
     private String appID = getString(R.string.app_id);
 
     @Override
