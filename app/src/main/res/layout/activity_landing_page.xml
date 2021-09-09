@@ -8,6 +8,15 @@
     tools:context=".LandingPage"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/userProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="290dp"
+        android:text="User Profile"
+        />
+
     <TextView
         android:id="@+id/userDisplay"
         android:layout_width="match_parent"
@@ -16,5 +25,6 @@
         android:textSize="10dp"
         android:layout_margin="20dp"
         />
+
 
 </LinearLayout>
