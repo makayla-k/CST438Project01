@@ -53,21 +53,21 @@
         app:layout_constraintTop_toBottomOf="@+id/current_name" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/edit_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="138dp"
         android:layout_marginTop="73dp"
         android:layout_marginEnd="166dp"
         android:layout_marginBottom="303dp"
-        android:text="Edit Profle"
+        android:text="Edit Profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/current_pass" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="145dp"
@@ -78,6 +78,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
