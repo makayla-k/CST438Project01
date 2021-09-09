@@ -13,6 +13,8 @@ public class LandingPage extends AppCompatActivity {
     private TextView userDisplay;
     Button usrProfileBtn;
 
+    private String appID = getString(R.string.app_id);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
