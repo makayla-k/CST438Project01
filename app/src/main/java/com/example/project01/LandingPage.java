@@ -13,6 +13,7 @@ public class LandingPage extends AppCompatActivity {
     private TextView userDisplay;
     Button usrProfileBtn;
 
+//    get app id from secrets file
     private String appID = getString(R.string.app_id);
 
     @Override
