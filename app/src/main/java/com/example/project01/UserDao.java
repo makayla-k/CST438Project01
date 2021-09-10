@@ -1,6 +1,7 @@
 package com.example.project01;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -12,4 +13,8 @@ public interface UserDao {
 
     @Query("SELECT * from users where username=(:username) and password=(:password)")
     UserEntity login(String username, String password);
+
+    //test branch
+    @Delete
+    void deleteUser(UserEntity userEntity);
 }
