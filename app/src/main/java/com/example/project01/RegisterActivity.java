@@ -58,9 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
     private Boolean validateReg(UserEntity userEntity){
-        if(userEntity.getUsername().isEmpty() || userEntity.getPassword().isEmpty() || userEntity.getUsername().isEmpty()){
-            return false;
-        }
-        return true;
+        return !userEntity.getPassword().isEmpty() && !userEntity.getUsername().isEmpty();
     }
 }
