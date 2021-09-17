@@ -6,8 +6,11 @@
 
 package com.example.project01;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -52,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 String passField = pass.getText().toString();
 
                 if (userField.isEmpty() && passField.isEmpty()) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Password and Username is empty", Toast.LENGTH_LONG);
-                    toast.show();
+                    alert("No Password nor Username was entered");
                 }
                 // get user from database/do query
                 else {
@@ -83,5 +85,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void alert(String message)
+    {
+        AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Error")
+                .setMessage(message)
+                .setPositiveButton("ok", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }})
+                .create();
+        dlg.show();
     }
 }
