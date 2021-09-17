@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         // do error message
-                                        Toast.makeText(getApplicationContext(), "does not match user", Toast.LENGTH_LONG).show();
+                                        alert("Does not exist");
                                     }
                                 });
                             } else {
