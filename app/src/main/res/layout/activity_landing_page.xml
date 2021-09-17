@@ -8,6 +8,15 @@
     tools:context=".LandingPage"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/userDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome user"
+        android:textSize="10dp"
+        android:layout_margin="20dp"
+        />
+
     <Button
         android:id="@+id/userProfile"
         android:layout_width="wrap_content"
@@ -17,13 +26,11 @@
         android:text="User Profile"
         />
 
-    <TextView
-        android:id="@+id/userDisplay"
-        android:layout_width="match_parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:scrollbars="vertical"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcom user"
-        android:textSize="10dp"
-        android:layout_margin="20dp"
         />
 
 
