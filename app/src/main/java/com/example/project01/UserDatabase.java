@@ -11,11 +11,8 @@ import androidx.room.RoomDatabase;
 
 public abstract class UserDatabase extends RoomDatabase {
 
-
     public abstract UserDao userDao();
-
-
-    private static final String dbName = "user";
+    public static final String dbName = "user";
 
     private static UserDatabase userDatabase;
 

@@ -9,12 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class UserProfile extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
     private Button edit;
     private Button home;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,8 @@ public class UserProfile extends AppCompatActivity {
         password = findViewById(R.id.current_pass);
         home = findViewById(R.id.home);
         edit = findViewById(R.id.edit_profile);
+      //  username.setText("");
+   //    username.append();
 
        // String userData = userDao.getStringExtra(username);
         //String passData = UserDao.getStringExtra(password)
@@ -42,7 +48,7 @@ public class UserProfile extends AppCompatActivity {
                                         {
                                             // change name
                                             //not sure what to put here
-                                         //   newIdentiy.registerUser(news);
+                                           newIdentiy.update(news);
                                             runOnUiThread(new Runnable() {
                                                 @Override
                                                 public void run() {
