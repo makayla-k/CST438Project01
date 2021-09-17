@@ -64,7 +64,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ArtistView
                 .into(holder.artistImage);
 
         holder.name.setText(artistInfoList.get(position).getName());
-        holder.eventCount.setText(String.valueOf(artistInfoList.get(position).getUpcomingEventCount()));
+        holder.eventCount.setText("Number of upcoming events: " + String.valueOf(artistInfoList.get(position).getUpcomingEventCount()));
     }
 
     @Override
