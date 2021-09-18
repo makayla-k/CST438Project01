@@ -1,5 +1,7 @@
 package com.example.project01;
 
+import android.util.Pair;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Artist {

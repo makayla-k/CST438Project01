@@ -19,10 +19,12 @@ public class UserProfile extends AppCompatActivity {
     private Button updateBtn;
     TextView userOuput, passOutput;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
 
         newName = findViewById(R.id.newUsername);
         newPass = findViewById(R.id.newPassword);
@@ -59,6 +61,7 @@ public class UserProfile extends AppCompatActivity {
                         }
                     }).start();
                 }
+
             }
         });
     }
