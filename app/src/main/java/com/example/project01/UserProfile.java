@@ -7,16 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Objects;
+import org.w3c.dom.Text;
 
 public class UserProfile extends AppCompatActivity {
 
-    private EditText username;
-    private EditText password;
-    private Button edit;
-    private Button home;
+    //button
+    private EditText newName, newPass;
+    private Button updateBtn;
+    TextView userOuput, passOutput;
 
 
     @Override
@@ -24,47 +25,43 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        username = findViewById(R.id.current_name);
-        password = findViewById(R.id.current_pass);
-        home = findViewById(R.id.home);
-        edit = findViewById(R.id.edit_profile);
-        //  username.setText("");
-        //    username.append();
 
-        // String userData = userDao.getStringExtra(username);
-        //String passData = UserDao.getStringExtra(password)
-        // how do I recieve information to see if it displays on the screen or nah
-        // do i use log in
+        newName = findViewById(R.id.newUsername);
+        newPass = findViewById(R.id.newPassword);
+        updateBtn = findViewById(R.id.updBtn);
 
-        edit.setOnClickListener(new View.OnClickListener() {
+        userOuput = findViewById(R.id.showUser);
+        String username = getIntent().getStringExtra("username");
+        userOuput.setText(username);
+
+        passOutput = findViewById(R.id.showPass);
+        String password = getIntent().getStringExtra("password");
+        passOutput.setText(password);
+
+
+        //
+        updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final UserEntity news = new UserEntity();
-                news.setUsername(username.getText().toString());
-                news.setPassword(password.getText().toString());
-                UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
-                final UserDao newIdentiy = userDatabase.userDao();
-                new Thread(() ->
-                {
-                    // change name
-                    //not sure what to put here
-                    newIdentiy.registerUser(news);
-                    runOnUiThread(new Runnable() {
+                String userInput = newName.getText().toString();
+                String passInput = newPass.getText().toString();
+
+                if (userInput.isEmpty() && passInput.isEmpty()) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Password and Username is empty", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                    final UserDao userDao = userDatabase.userDao();
+                    new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent = new Intent(UserProfile.this, LandingPage.class);
+                            userDao.updateUser(userInput, passInput);
+                            Intent intent = new Intent(UserProfile.this, MainActivity.class);
                             startActivity(intent);
                         }
-                    });
-                }).start();
-            }
-        });
+                    }).start();
+                }
 
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UserProfile.this, LandingPage.class);
-                startActivity(intent);
             }
         });
     }
