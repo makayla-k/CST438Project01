@@ -8,11 +8,42 @@
     tools:context=".UserProfile"
     android:orientation="vertical">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Username"
+        android:layout_margin="10dp"/>
+
+
+    <TextView
+        android:id="@+id/showUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="5dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Password"
+        android:layout_margin="10dp"/>
+
+
+    <TextView
+        android:id="@+id/showPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_margin="5dp"
+        />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Enter username"
+        android:hint="Update username"
         android:id="@+id/newUsername"/>
 
     <EditText
@@ -20,7 +51,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:layout_margin="20dp"
-        android:hint="Enter Password"
+        android:hint="Update Password"
         android:id="@+id/newPassword"/>
 
     <Button

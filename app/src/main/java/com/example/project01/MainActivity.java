@@ -74,8 +74,10 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 // match
                                 String username = userEntity.username;
+                                String password = userEntity.password;
                                 Intent intent = new Intent(MainActivity.this, LandingPage.class)
-                                        .putExtra("username", username);
+                                        .putExtra("username", username)
+                                        .putExtra("password", password);
                                 startActivity(intent);
                             }
                         }

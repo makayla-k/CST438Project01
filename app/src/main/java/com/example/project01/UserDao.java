@@ -23,4 +23,7 @@ public interface UserDao {
 
     @Query("update users set username =(:username) and password=(:password)")
     void updateUser(String username, String password);
+
+    @Query("SELECT * from users where username=(:username)")
+    UserEntity getUser(String username);
 }

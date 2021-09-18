@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -45,20 +46,42 @@ public class LandingPage extends AppCompatActivity {
 
         // test for user sign in
         String userOutput = getIntent().getStringExtra("username");
-        userDisplay.setText(userOutput);
+        //abcuserDisplay.setText(userOutput);
+        String passOutput = getIntent().getStringExtra("password");
 
         // User profile button
         usrProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LandingPage.this, UserProfile.class);
-                startActivity(intent);
+                UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                UserDao userDao = userDatabase.userDao();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        UserEntity userEntity = userDao.getUser(userOutput);
+                        if (userEntity == null) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(getApplicationContext(), "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            // CALL API
+                            // TEST
+                            String username = userEntity.username;
+                            String password = userEntity.password;
+                            Intent intent = new Intent(LandingPage.this, UserProfile.class)
+                                    .putExtra("username", username)
+                                    .putExtra("password", password);
+                            startActivity(intent);
+                        }
+                    }
+                }).start();
             }
         });
     }
-
     private void connectAndGetApiData() {
-
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
