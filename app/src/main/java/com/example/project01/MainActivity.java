@@ -9,14 +9,13 @@ package com.example.project01;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -93,11 +92,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dlg = new AlertDialog.Builder(MainActivity.this)
                 .setTitle("Error")
                 .setMessage(message)
-                .setPositiveButton("ok", new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }})
+                .setPositiveButton("ok", (dialog, which) -> dialog.dismiss())
                 .create();
         dlg.show();
     }
